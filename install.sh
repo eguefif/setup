@@ -20,7 +20,7 @@ echo "*********************************************************************"
 
 which kitty
 if [[ $? != 0 ]]; then
-	echo "\nInstalling Kitty"
+	echo "Installing Kitty"
 	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 	# Create symbolic links to add kitty and kitten to PATH (assuming ~/.local/bin is in
 	# your system-wide PATH)
@@ -55,6 +55,11 @@ if [[ $? != 0 ]]; then
 	echo "Installing stow"
 	$PM stow
 fi
+
+echo "Stowing config"
+stow -t ~ nvim
+stow -t ~ tmux
+stow -t ~ kitty
 
 echo "Setting up git"
 git config --global core.editor "nvim"

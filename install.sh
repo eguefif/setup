@@ -21,6 +21,7 @@ echo "****************Installing Emmanuel's terminal setup*****************"
 echo "*********************************************************************"
 
 
+USERNAME=$(who | awk '{print $1;exit}')
 sudo -u $USERNAME /bin/bash kitty-install.sh
 
 which starship

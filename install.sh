@@ -42,3 +42,8 @@ $PM neovim
 
 echo "Installing stow"
 $PM stow
+
+echo "Stowing away"
+stow -t ~ -S nvim
+stow -t ~ -S tmux
+stow -t ~ -S kitty

@@ -2,6 +2,7 @@
 
 if [[ $1 == "linux" ]]; then
 	PM="apt-get install -y "
+	apt-get update && apt-get upgrade
 elif [[ $1 == "mac" ]]; then
 	which brew
 	if [[ $? != 0 ]]; then
@@ -36,13 +37,31 @@ if [[ $? != 0 ]]; then
 	echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 fi
 
+which npm
+if [[ $? != 0 ]]; then
+	echo "Installing Nodejs and NPM"
+	$PM nodejs
+	$PM npm
+fi
+
+which ruby
+if [[ $? != 0 ]]; then
+	echo "Installing Ruby and rubocop"
+	$PM ruby
+	gem install rubocop
+fi
+
 which tmux
 if [[ $? != 0 ]]; then
 	echo "Installing Tmux"
+	$PM libvent-dev ncurses-dev build-essential bison pkg-config
 	$PM tmux
-	$PM libvent
-	$PM ncurses
 fi
+
+which npm
+if [[ $? != 0 ]]; then
+	echo "Installing npm"
+	$PM npm
 
 which nvim
 if [[ $? != 0 ]]; then
@@ -53,13 +72,13 @@ fi
 which stow
 if [[ $? != 0 ]]; then
 	echo "Installing stow"
-	$PM stow
+	$PM nodejs
 fi
 
 echo "Stowing config"
-stow -t ~ nvim
-stow -t ~ tmux
-stow -t ~ kitty
+stow -t ~ -S nvim
+stow -t ~ -S tmux
+stow -t ~ -S kitty
 
 echo "Setting up git"
 git config --global core.editor "nvim"

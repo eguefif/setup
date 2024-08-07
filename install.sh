@@ -41,3 +41,9 @@ $PM neovim
 
 echo "Installing stow"
 $PM stow
+
+echo "Setting up git"
+git config --global core.editor "nvim"
+git config --global user.name "Emmanuel Guefif"
+git config --global user.email "eguefif@fastmail.com"
+git config --global user.username "eguefif"

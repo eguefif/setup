@@ -37,20 +37,6 @@ if [[ $? != 0 ]]; then
 	echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 fi
 
-which npm
-if [[ $? != 0 ]]; then
-	echo "Installing Nodejs and NPM"
-	$PM nodejs
-	$PM npm
-fi
-
-which ruby
-if [[ $? != 0 ]]; then
-	echo "Installing Ruby and rubocop"
-	$PM ruby
-	gem install rubocop
-fi
-
 which tmux
 if [[ $? != 0 ]]; then
 	echo "Installing Tmux"
@@ -68,6 +54,14 @@ if [[ $? != 0 ]]; then
 	echo "Installing Neovim"
 	$PM neovim
 fi
+
+which ruby
+if [[ $? != 0 ]]; then
+	echo "Installing Ruby"
+	$PM ruby
+	$PM rbenv
+fi
+
 
 which stow
 if [[ $? != 0 ]]; then

@@ -1,6 +1,6 @@
 #/bin/bash
 
-USERNAME = who | awk '{print $1; exit}'
+USERNAME=who | awk '{print $1; exit}'
 
 uname | grep Linux
 if [[ $? == 0  ]]; then

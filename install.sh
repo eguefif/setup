@@ -42,6 +42,7 @@ which npm
 if [[ $? != 0 ]]; then
 	echo "Installing npm"
 	$PM npm
+fi
 
 which nvim
 if [[ $? != 0 ]]; then

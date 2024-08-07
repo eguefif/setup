@@ -20,7 +20,7 @@ if [[ $? != 0 ]]; then
 	# Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
 	echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 	echo $PATH | grep /home/$USERNAME/.local/bin
-	$USERNAME=$(who | awk '{print $1;exit}')
+	USERNAME=$(who | awk '{print $1;exit}')
 	if [[ $? != 0 ]]; then
 		echo export PATH=$PATH:/home/$USERNAME/.local/bin >> ~/.bashrc
 		export PATH=$PATH:/home/$USERNAME/.local/bin

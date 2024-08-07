@@ -62,7 +62,7 @@ fi
 which stow
 if [[ $? != 0 ]]; then
 	echo "Installing stow"
-	$PM nodejs
+	$PM stow
 fi
 
 echo "Stowing config"

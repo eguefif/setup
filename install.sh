@@ -1,13 +1,15 @@
 #/bin/bash
 
-if [ $1 == "linux" ]; then
+if [[ $1 == "linux" ]]; then
 	PM="apt-get install -y "
-elif [ $1 == "mac" ]; then
-	which -s brew
+elif [[ $1 == "mac" ]]; then
+	which brew
 	if [[ $? != 0 ]]; then
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
+	PM="brew install -y"
 else
+	echo "You need to say if you want to install on mac or linux: bash installing.sh mac"
 	return
 fi
 

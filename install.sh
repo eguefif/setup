@@ -21,6 +21,14 @@ echo "****************Installing Emmanuel's terminal setup*****************"
 echo "*********************************************************************"
 
 
+which starship
+if [[ $? != 0 ]]; then
+	echo "Installing starhip"
+	curl -sS https://starship.rs/install.sh | sh
+	echo 'eval "$(starship init bash)"' >> ~/.bashrc
+	starship preset tokyo-night -o ~/.config/starship.toml
+fi
+
 which kitty
 if [[ $? != 0 ]]; then
 	echo "Installing Kitty"

@@ -19,4 +19,9 @@ if [[ $? != 0 ]]; then
 	sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
 	# Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
 	echo 'kitty.desktop' > ~/.config/xdg-terminals.list
+	echo $PATH | grep /home/$USERNAME/.local/bin
+	if [[ $? != 0 ]]; then
+		echo export PATH=$PATH:/home/$USERNAME/.local/bin
+		export PATH=$PATH:/home/$USERNAME/.local/bin
+	fi
 fi

@@ -51,11 +51,13 @@ if [[ $? != 0 ]]; then
 	$PM neovim
 fi
 
+
 which ruby
 if [[ $? != 0 ]]; then
 	echo "Installing Ruby"
 	$PM ruby
 	$PM rbenv
+	gem install rubocop
 fi
 
 

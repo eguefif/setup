@@ -22,6 +22,6 @@ if [[ $? != 0 ]]; then
 	echo $PATH | grep $HOME/.local/bin
 	if [[ $? != 0 ]]; then
 		echo export PATH=$PATH:$HOME/.local/bin >> ~/.bashrc
-		export PATH=$PATH:$HOME/.local/bin
+		source ~/.bashrc
 	fi
 fi

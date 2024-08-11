@@ -21,6 +21,11 @@ if [[ $? == 0 ]]; then
   PM="apt-get install -y "
   apt-get -y update && apt-get -y upgrade
   USERHOME="/home/$USERNAME"
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  chmod u+x nvim.appimage
+  mkdir -p /opt/nvim
+  mv nvim.appimage /opt/nvim/nvim
+  echo export PATH="$PATH:/opt/nvim/" >>$USERHOME/.bashrc
 else
   which brew
   if [[ $? != 0 ]]; then
@@ -28,6 +33,7 @@ else
   fi
   PM="brew install -y"
   USERHOME="/usr/$USERNAME"
+  brew install -y neovim
 fi
 
 which tmux
@@ -46,7 +52,6 @@ fi
 which nvim
 if [[ $? != 0 ]]; then
   echo "Installing Neovim"
-  $PM neovim
 fi
 
 which ruby

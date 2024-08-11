@@ -1,5 +1,14 @@
 #/bin/bash
 
+echo "*********************************************************************"
+echo "****************Installing Emmanuel's terminal setup*****************"
+echo "*********************************************************************"
+
+echo "We need some information to configure git"
+read -p "name: " fullname
+read -p "username: " username
+read -p "email: " email
+
 USERNAME=$(who | awk '{print $1;exit}')
 sudo -u $USERNAME /bin/bash kitty-install.sh
 
@@ -20,15 +29,6 @@ else
   PM="brew install -y"
   USERHOME="/usr/$USERNAME"
 fi
-
-echo "*********************************************************************"
-echo "****************Installing Emmanuel's terminal setup*****************"
-echo "*********************************************************************"
-
-echo "We need some information to configure git"
-read -p "name: " fullname
-read -p "username: " username
-read -p "email: " email
 
 which tmux
 if [[ $? != 0 ]]; then

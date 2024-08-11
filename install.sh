@@ -62,9 +62,9 @@ if [[ $? != 0 ]]; then
 fi
 
 echo "Stowing config"
-sudo -u stow -t $HOME -S nvim
-sudo -u stow -t $HOME -S tmux
-sudo -u stow -t $HOME -S kitty
+sudo -u $USERNAME stow -t $HOME -S nvim
+sudo -u $USERNAME stow -t $HOME -S tmux
+sudo -u $USERNAME stow -t $HOME -S kitty
 
 echo "Setting up git"
 git config --global core.editor "nvim"

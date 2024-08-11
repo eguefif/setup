@@ -1,5 +1,8 @@
 #/bin/bash
 
+USERNAME=$(who | awk '{print $1;exit}')
+sudo -u $USERNAME /bin/bash kitty-install.sh
+
 uname | grep Linux
 if [[ $? == 0 ]]; then
   if [[ $(whoami) != 'root' ]]; then
@@ -8,12 +11,14 @@ if [[ $? == 0 ]]; then
   fi
   PM="apt-get install -y "
   apt-get -y update && apt-get -y upgrade
+  USERHOME="/home/$USERNAME"
 else
   which brew
   if [[ $? != 0 ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
   PM="brew install -y"
+  USERHOME="/usr/$USERNAME"
 fi
 
 echo "*********************************************************************"
@@ -24,9 +29,6 @@ echo "We need some information to configure git"
 read -p "name: " fullname
 read -p "username: " username
 read -p "email: " email
-
-USERNAME=$(who | awk '{print $1;exit}')
-sudo -u $USERNAME /bin/bash kitty-install.sh
 
 which tmux
 if [[ $? != 0 ]]; then
@@ -62,9 +64,9 @@ if [[ $? != 0 ]]; then
 fi
 
 echo "Stowing config"
-sudo -u $USERNAME stow -t $HOME -S nvim
-sudo -u $USERNAME stow -t $HOME -S tmux
-sudo -u $USERNAME stow -t $HOME -S kitty
+sudo -u $USERNAME stow -t $USERHOME -S nvim
+sudo -u $USERNAME stow -t $USERHOME -S tmux
+sudo -u $USERNAME stow -t $USERHOME -S kitty
 
 echo "Setting up git"
 git config --global core.editor "nvim"

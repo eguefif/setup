@@ -31,7 +31,7 @@ else
   if [[ $? != 0 ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
-  PM="brew install -y"
+  PM="brew install --yes"
   USERHOME="/usr/$USERNAME"
   brew install -y neovim
 fi

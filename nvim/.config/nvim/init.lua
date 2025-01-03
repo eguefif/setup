@@ -1,4 +1,5 @@
 require(".lazy")
+require(".keymaps")
 require(".options")
 
 vim.keymap.set("n", "<leader>sx", "<cmd>source %<CR>", { desc = "Source File" })

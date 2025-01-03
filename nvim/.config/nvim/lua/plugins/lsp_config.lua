@@ -12,30 +12,32 @@ return {
         },
     },
     config = function()
-        require("lspconfig").lua_ls.setup {}
-        require 'lspconfig'.rust_analyzer.setup {
+        require("lspconfig").lua_ls.setup({})
+        require("lspconfig").rust_analyzer.setup({
             settings = {
-                ['rust-analyzer'] = {
+                ["rust-analyzer"] = {
                     diagnostics = {
                         enable = false,
-                    }
-                }
-            }
-        }
-        require 'lspconfig'.sqlls.setup {}
-        require 'lspconfig'.rubocop.setup {}
-        require 'lspconfig'.ruby_lsp.setup {
-            filetypes = { 'ruby' },
-        }
-        require('lspconfig').ruff.setup {}
+                    },
+                },
+            },
+        })
+        require("lspconfig").sqlls.setup({})
+        require("lspconfig").rubocop.setup({})
+        require("lspconfig").ruby_lsp.setup({
+            filetypes = { "ruby" },
+        })
+        require("lspconfig").ruff.setup({})
 
-        vim.api.nvim_create_autocmd('LspAttach', {
+        vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(args)
                 local client = vim.lsp.get_client_by_id(args.data.client_id)
-                if not client then return end
+                if not client then
+                    return
+                end
 
-                if client.supports_method('textDocument/formatting') then
-                    vim.api.nvim_create_autocmd('BufWritePre', {
+                if client.supports_method("textDocument/formatting") then
+                    vim.api.nvim_create_autocmd("BufWritePre", {
                         buffer = args.buf,
                         callback = function()
                             vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
@@ -43,23 +45,22 @@ return {
                     })
                 end
 
-
-                if client.supports_method('textDocument/code_action') then
+                if client.supports_method("textDocument/code_action") then
                     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
                 end
-                if client.supports_method('textDocument/definition') then
+                if client.supports_method("textDocument/definition") then
                     vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
                 end
-                if client.supports_method('textDocument/rename') then
+                if client.supports_method("textDocument/rename") then
                     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
                 end
-                if client.supports_method('textDocument/references') then
+                if client.supports_method("textDocument/references") then
                     vim.keymap.set("n", "<leader>lr", vim.lsp.buf.references, {})
                 end
-                if client.supports_method('textDocument/implementation') then
+                if client.supports_method("textDocument/implementation") then
                     vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation, {})
                 end
             end,
         })
-    end
+    end,
 }

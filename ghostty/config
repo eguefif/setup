@@ -1,0 +1,13 @@
+theme = catppuccin-mocha
+
+working-directory = home
+window-inherit-working-directory = true
+
+keybind = ctrl+%=new_split:right
+keybind = ctrl+'=new_split:down
+keybind = ctrl+l=goto_split:right
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+
+shell-integration = zsh

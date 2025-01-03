@@ -25,7 +25,10 @@ return {
                 fzf = {},
             },
         })
+        require("telescope").load_extension("fzf")
         vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "Find Files" })
+        vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find in buffers" })
+        vim.keymap.set("n", "<leader>fr", builtin.registers, { desc = "Find in registers" })
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find in Help" })
         vim.keymap.set("n", "<leader>fp", function()
             builtin.find_files({

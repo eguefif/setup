@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 source ~/.zshrc_local
 
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"

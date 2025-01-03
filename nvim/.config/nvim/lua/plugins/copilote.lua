@@ -13,12 +13,12 @@ return {
 			require("CopilotChat").setup({})
 			vim.keymap.set(
 				"n",
-				"<leader>cpc",
+				"<leader>apc",
 				"<cmd>lua require('CopilotChat').open()<cr>",
 				{ desc = "open copilote chat" }
 			)
-			vim.keymap.set("n", "<leader>cpe", "<cmd>Copilot enable<CR>", { desc = "enable copilote" })
-			vim.keymap.set("n", "<leader>cpd", "<cmd>Copilot disable<CR>", { desc = "enable copilote" })
+			vim.keymap.set("n", "<leader>ape", "<cmd>Copilot enable<CR>", { desc = "enable copilote" })
+			vim.keymap.set("n", "<leader>apd", "<cmd>Copilot disable<CR>", { desc = "enable copilote" })
 		end,
 	},
 }

@@ -1,5 +1,4 @@
-# How
-sudo bash install.
-
-When starting tmux, don't forget to install plug-ins
-C-s I
+This repository contain my configurations for the following tools:
+- Neovim
+- Ghostty
+- zsh

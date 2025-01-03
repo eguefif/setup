@@ -23,8 +23,6 @@ set_color() {
   fi
 }
 
-PS1="[\e[0;34m\u@\h\e[0;m | \e[0;31m$TIME\e[0;35m "'`set_color`'"\$(parse_git_branch)\e[0;m \w\e[0;m \n\$ \e[0;m"
-
 if which rbenv >/dev/null; then eval "$(rbenv init -)"; fi # rbenv shims
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -33,3 +31,9 @@ eval "$(rbenv init -)"
 alias ls="ls -G"
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+alias lg="lazygit"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
+. "$HOME/.cargo/env"
+
+export EDITOR=nvim

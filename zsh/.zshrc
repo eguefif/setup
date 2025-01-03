@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-#
+
+source ~/.zshrc_local
+
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 alias lg=lazygit
 export EDITOR=nvim
 

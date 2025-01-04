@@ -1,14 +1,20 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+. "$HOME/.cargo/env"
 
-source ~/.zshrc_local
-
-export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 alias lg=lazygit
 export EDITOR=nvim
+
+if [ "$GDMSESSION" = "ubuntu" ]; then
+    export PATH=~/.cargo/bin/:~/bin:~/.local/bin/go/bin/:~/.local/share/nvim/mason/bin/:~/.local/bin/:~/.local/bin/nvim/bin/:~/.local/bin/zig/:$PATH
+else
+    source ~/.zshrc_local
+    export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
+
+    # Set up fzf key bindings and fuzzy completion
+    source <(fzf --zsh)
+fi
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -17,7 +23,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-export ZSH_THEME="ys"
+export ZSH_THEME="amuse"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load

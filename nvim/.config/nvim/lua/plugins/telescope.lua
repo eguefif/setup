@@ -32,6 +32,7 @@ return {
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find in Help" })
         vim.keymap.set("n", "<leader>k", builtin.keymaps, { desc = "List keymaps" })
         vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Goto implementations" })
+        vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Goto definitions" })
         vim.keymap.set("n", "<leader>fp", function()
             builtin.find_files({
                 cwd = vim.fs.joinpath(data_path, "lazy"),

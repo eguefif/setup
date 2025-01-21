@@ -29,6 +29,7 @@ return {
             filetypes = { "ruby" },
         })
         require("lspconfig").ruff.setup({})
+        require("lspconfig").jsonls.setup({})
 
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(args)

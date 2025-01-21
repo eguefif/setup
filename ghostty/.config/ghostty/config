@@ -2,6 +2,7 @@ theme = catppuccin-mocha
 
 working-directory = home
 window-inherit-working-directory = true
+window-decoration=false
 
 keybind = ctrl+shift+s=new_split:right
 keybind = ctrl+super+s=new_split:down

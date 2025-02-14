@@ -12,6 +12,10 @@ return {
         },
     },
     config = function()
+        require("lspconfig").elixirls.setup({
+            -- Unix
+            cmd = { "/Users/eguefif/.local/share/nvim/mason/bin/elixir-ls" },
+        })
         require("lspconfig").lua_ls.setup({})
         require("lspconfig").rust_analyzer.setup({
             settings = {
@@ -29,7 +33,9 @@ return {
             filetypes = { "ruby" },
         })
         require("lspconfig").ruff.setup({})
+        require("lspconfig").clangd.setup({})
 
+        require("lspconfig").eslint.setup({})
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function(args)
                 local client = vim.lsp.get_client_by_id(args.data.client_id)

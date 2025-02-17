@@ -2,7 +2,6 @@ theme = catppuccin-mocha
 
 working-directory = home
 window-inherit-working-directory = true
-window-decoration=false
 
 keybind = ctrl+shift+s=new_split:right
 keybind = ctrl+super+s=new_split:down
@@ -13,3 +12,5 @@ keybind = ctrl+k=goto_split:top
 keybind = ctrl+t=new_tab
 
 shell-integration = zsh
+window-decoration=true
+fullscreen=true

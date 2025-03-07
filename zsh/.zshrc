@@ -16,9 +16,13 @@ if [ "$GDMSESSION" = "ubuntu" ]; then
 else
     source ~/.zshrc_local
     export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
+    export PATH=~/.local/bin/:$PATH
 
     # Set up fzf key bindings and fuzzy completion
     source <(fzf --zsh)
+
+    export PATH=$HOME/.elixir-install/installs/otp/27.2.2/bin:$PATH
+    export PATH=$HOME/.elixir-install/installs/elixir/1.18.2-otp-27/bin:$PATH
 fi
 
 # Path to your Oh My Zsh installation.

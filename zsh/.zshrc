@@ -6,8 +6,13 @@
 alias lg=lazygit
 export EDITOR=nvim
 
+
+# Elixir asdf version manager shims
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+plugins=(asdf)
+
 if [ "$GDMSESSION" = "ubuntu" ]; then
-    export PATH=~/.cargo/bin/:~/bin:~/.local/bin/go/bin/:~/.local/share/nvim/mason/bin/:~/.local/bin/:~/.local/bin/nvim/bin/:~/.local/bin/zig/:$PATH
+    export PATH=~/go/bin:~/.cargo/bin/:~/bin:~/.local/bin/go/bin/:~/.local/share/nvim/mason/bin/:~/.local/bin/:~/.local/bin/nvim/bin/:~/.local/bin/zig/:$PATH
 else
     source ~/.zshrc_local
     export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"

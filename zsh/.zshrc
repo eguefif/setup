@@ -4,6 +4,7 @@
 . "$HOME/.cargo/env"
 
 alias lg=lazygit
+alias ldock=lazydocker
 export EDITOR=nvim
 
 if [ "$GDMSESSION" = "ubuntu" ]; then
@@ -16,8 +17,10 @@ else
     # Set up fzf key bindings and fuzzy completion
     source <(fzf --zsh)
 
-    export PATH=$HOME/.elixir-install/installs/otp/27.2.2/bin:$PATH
-    export PATH=$HOME/.elixir-install/installs/elixir/1.18.2-otp-27/bin:$PATH
+    #export PATH=$HOME/.elixir-install/installs/otp/27.2.2/bin:$PATH
+    #export PATH=$HOME/.elixir-install/installs/elixir/1.18.2-otp-27/bin:$PATH
+    export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+    export PATH=:~/.local/bin/go/bin/:/usr/local/go/bin:$PATH
 fi
 
 # Path to your Oh My Zsh installation.

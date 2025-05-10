@@ -37,3 +37,4 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 . "$HOME/.cargo/env"
 
 export EDITOR=nvim
+source "/Users/eguefif/.rover/env"

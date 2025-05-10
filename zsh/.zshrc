@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
+alias ghidra="$HOME/lab/ghidra/ghidra/ghidraRun"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+export JAVA_HOME="/usr/lib/jvm/default-java/"
 . "$HOME/.cargo/env"
 
 alias lg=lazygit

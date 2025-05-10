@@ -14,9 +14,11 @@ return {
     config = function()
         require("lspconfig").elixirls.setup({
             -- Unix
-            cmd = { "/Users/eguefif/.local/share/nvim/mason/bin/elixir-ls" },
+            -- cmd = { "~/.local/share/nvim/mason/bin/elixir-ls" },
+            cmd = { "elixir-ls" },
         })
         local lspconfig = require('lspconfig')
+        require 'lspconfig'.clangd.setup {}
 
         lspconfig.volar.setup {
             -- add filetypes for typescript, javascript and vue
@@ -41,6 +43,7 @@ return {
             },
         })
         require("lspconfig").sqlls.setup({})
+        require("lspconfig").eslint.setup {}
         --require("lspconfig").rubocop.setup({})
         -- TODO: check solargraph
         require("lspconfig").ruby_lsp.setup({

@@ -53,13 +53,13 @@ theme = Catppuccin Mocha
 working-directory = home
 window-inherit-working-directory = true
 
-keybind = ctrl+shift+s=new_split:right
-keybind = ctrl+super+s=new_split:down
-keybind = ctrl+l=goto_split:right
-keybind = ctrl+h=goto_split:left
-keybind = ctrl+j=goto_split:bottom
-keybind = ctrl+k=goto_split:top
-keybind = ctrl+super+t=new_tab
+#keybind = ctrl+shift+s=new_split:right
+#keybind = ctrl+super+s=new_split:down
+#keybind = ctrl+l=goto_split:right
+#keybind = ctrl+h=goto_split:left
+#keybind = ctrl+j=goto_split:bottom
+#keybind = ctrl+k=goto_split:top
+#keybind = ctrl+super+t=new_tab
 
 shell-integration = zsh
 window-decoration=true

@@ -60,6 +60,8 @@ window-inherit-working-directory = true
 #keybind = ctrl+j=goto_split:bottom
 #keybind = ctrl+k=goto_split:top
 #keybind = ctrl+super+t=new_tab
+keybind = ctrl+alt+shift+n=next_tab
+keybind = ctrl+alt+shift+p=previous_tab
 
 shell-integration = zsh
 window-decoration=true

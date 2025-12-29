@@ -4,6 +4,8 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+alias uvr="uv run"
+
 . "$HOME/.cargo/env"
 
 # Set name of the theme to load --- if set to "random", it will

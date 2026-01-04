@@ -1,0 +1,17 @@
+# My Personal Setup
+
+### How to create a dot-files
+
+1. Move the config file into the setup folder. You need to reproduce the filetree where the file need to be stowed.
+2. Run `./stow_all.sh` to create the symlink.
+
+### How to reinstall all dot-files?
+
+You need first to install *stow*.
+
+```bash
+./stow-all.sh
+```
+
+
+

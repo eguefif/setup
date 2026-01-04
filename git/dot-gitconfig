@@ -1,0 +1,6 @@
+[user]
+	email = eguefif@fastmail.com
+	name = Emmanuel Guefif
+[core]
+	editor = nvim
+	pager = cat

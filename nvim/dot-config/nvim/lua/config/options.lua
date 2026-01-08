@@ -4,6 +4,7 @@ vim.cmd("set softtabstop=3")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set number")
 vim.cmd("set rnu")
+vim.cmd("set autoread")
 
 -- This config is necessary for Bufferline
 vim.cmd("set termguicolors")

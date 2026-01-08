@@ -62,7 +62,8 @@ window-inherit-working-directory = true
 #keybind = ctrl+super+t=new_tab
 keybind = ctrl+alt+shift+n=next_tab
 keybind = ctrl+alt+shift+p=previous_tab
+#keybind = ctrl+alt+shift+k=toggle_fullscreen
 
 shell-integration = zsh
 window-decoration=true
-fullscreen=true
+fullscreen=false

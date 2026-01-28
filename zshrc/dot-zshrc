@@ -6,6 +6,8 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="/usr/bin/nvim"
 
 alias uvr="uv run"
+alias ccr="codecrafters test"
+alias ccrp="codecrafters test --previous"
 
 . "$HOME/.cargo/env"
 

@@ -11,7 +11,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 chars
             vim.lsp.completion.enable(true, client.id, ev.buf,
                                       {autotrigger = false})
-            vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', {buffer = ev.buf, desc = 'Trigger completion'})
+            vim.keymap.set('i', '<C-Space>', '<C-x><C-o>',
+                           {buffer = ev.buf, desc = 'Trigger completion'})
         end
     end
 })
@@ -24,6 +25,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.api.nvim_buf_set_keymap(ev.buf, 'n', '<leader>e',
                                         '<cmd>lua vim.diagnostic.open_float()<CR>',
                                         opts)
+        end
+    end
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client.supports_method("textDocument/references") then
+            vim.keymap.set('n', 'gr', function()
+                require('telescope.builtin').lsp_references({
+                    layout_strategy = 'vertical',
+                    layout_config = {width = 0.9, height = 0.9}
+                })
+            end, {buffer = ev.buf, desc = 'LSP references'})
         end
     end
 })

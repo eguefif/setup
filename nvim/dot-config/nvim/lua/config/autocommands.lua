@@ -80,3 +80,33 @@ vim.api.nvim_create_autocmd('FileType', {
     pattern = {'gleam'},
     callback = function() vim.treesitter.start() end
 })
+
+-- Auto save modified buffers every 2 seconds
+local autosave_timer = vim.uv.new_timer()
+local autosave_enabled = false
+vim.notify('Autosave is disabled')
+
+local function autosave_callback()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].modified and
+            vim.bo[buf].buftype == "" and vim.api.nvim_buf_get_name(buf) ~= "" then
+            vim.api.nvim_buf_call(buf, function()
+                vim.cmd('silent! write')
+            end)
+        end
+    end
+end
+
+autosave_timer:start(2000, 2000, vim.schedule_wrap(autosave_callback))
+
+vim.keymap.set('n', '<leader>ta', function()
+    if autosave_enabled then
+        autosave_timer:stop()
+        autosave_enabled = false
+        vim.notify('Autosave disabled')
+    else
+        autosave_timer:start(2000, 2000, vim.schedule_wrap(autosave_callback))
+        autosave_enabled = true
+        vim.notify('Autosave enabled')
+    end
+end, {desc = 'Toggle autosave'})

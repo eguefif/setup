@@ -8,8 +8,8 @@ return {
                 python = {"ruff_organize_imports", "ruff_format"},
                 -- You can customize some of the format options for the filetype (:help conform.format)
                 rust = {"rustfmt", lsp_format = "fallback"},
-                ruby = {"rubocop"},
-                eruby = {"erblint"},
+                ruby = {"rubocop", lsp_format = "fallback"},
+                eruby = {"erb_lint"},
                 toml = {"taplo"},
                 json = {"prettier"},
                 vue = {"prettier"},
@@ -18,7 +18,14 @@ return {
                 typescript = {"prettier"},
                 typescriptreact = {"prettier"}
             },
-            format_on_save = {timeout_ms = 500, lsp_fallback = false}
+            formatters = {
+                erb_lint = {
+                    command = "erblint",
+                    args = {"-a", "$FILENAME"},
+                    stdin = false
+                }
+            },
+            format_after_save = {timeout_ms = 3000, lsp_fallback = false}
         })
     end
 }

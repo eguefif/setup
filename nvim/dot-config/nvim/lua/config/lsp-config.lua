@@ -8,4 +8,5 @@ vim.diagnostic.config({
     virtual_lines = {current_line = true}
 })
 
--- TODO: check if JS vue lsp works Make erb linter works
+-- TODO: check if JS vue lsp works Make erb linter works AUTOSAVE
+-- Auto save toggle keymap

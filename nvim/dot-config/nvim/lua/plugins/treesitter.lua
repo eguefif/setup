@@ -5,7 +5,7 @@ return {
     config = function()
         require('nvim-treesitter').install({
             "lua", "rust", "python", "javascript", "typescript", "css", "html",
-            "latex", "scss", "svelte", "tsx", "typst", "vue", "react", "json"
+            "latex", "scss", "svelte", "tsx", "typst", "vue", "json", "gleam"
         })
         require("nvim-treesitter").setup({
             highlight = {enable = true},

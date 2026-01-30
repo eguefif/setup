@@ -1,4 +1,6 @@
-vim.lsp.enable({'ruff', 'basedpyright', 'rust_analyzer', 'lua_ls', 'volar', 'vtsls'})
+vim.lsp.enable({
+    'ruff', 'basedpyright', 'rust_analyzer', 'lua_ls', 'volar', 'vtsls', 'gleam'
+})
 
 vim.diagnostic.config({
     virtual_text = false,

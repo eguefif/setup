@@ -14,6 +14,53 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.keymap.set('i', '<C-Space>', '<C-x><C-o>',
                            {buffer = ev.buf, desc = 'Trigger completion'})
         end
+
+        -- Go to references telescope search
+        if client.supports_method("textDocument/references") then
+            vim.keymap.set('n', 'grr', function()
+                require('telescope.builtin').lsp_references({
+                    layout_strategy = 'vertical',
+                    layout_config = {width = 0.9, height = 0.9}
+                })
+            end, {buffer = ev.buf, desc = 'LSP references'})
+        end
+
+        if client.supports_method("textDocument/codeAction") then
+            -- Auto remove all unused import
+            vim.keymap.set('n', '<leader>cr', function()
+                vim.lsp.buf.code_action({
+                    filter = function(action)
+                        if action.title:lower():find("remove all unused import",
+                                                     1) then
+                            return true
+                        end
+                        return false
+                    end,
+                    apply = true
+                })
+            end, {buffer = ev.buf, desc = "Remove All Unused Import"})
+
+            -- Auto add import 
+            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action,
+                           {buffer = ev.buf, desc = 'Code Actions'})
+
+            -- Auto add import 
+            vim.keymap.set('n', '<leader>i', function()
+                vim.lsp.buf.code_action({
+                    filter = function(action)
+                        local keywords = {'import', 'add', 'use', 'include'}
+                        local title = action.title:lower()
+                        for _, keyword in ipairs(keywords) do
+                            if title:find(keyword, 1, true) then
+                                return true
+                            end
+                        end
+                        return false
+                    end,
+                    apply = true
+                })
+            end, {buffer = ev.buf, desc = 'Auto Import'})
+        end
     end
 })
 
@@ -29,16 +76,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(ev)
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client.supports_method("textDocument/references") then
-            vim.keymap.set('n', 'gr', function()
-                require('telescope.builtin').lsp_references({
-                    layout_strategy = 'vertical',
-                    layout_config = {width = 0.9, height = 0.9}
-                })
-            end, {buffer = ev.buf, desc = 'LSP references'})
-        end
-    end
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'gleam'},
+    callback = function() vim.treesitter.start() end
 })

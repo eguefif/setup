@@ -20,3 +20,5 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 
+-- Disable LSP logging and add keymap to toggle
+vim.lsp.set_log_level("ERROR")

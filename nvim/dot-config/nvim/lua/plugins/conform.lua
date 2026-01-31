@@ -13,6 +13,7 @@ return {
                 toml = {"taplo"},
                 json = {"prettier"},
                 vue = {"prettier"},
+                gleam = {"gleam"},
                 javascript = {"prettier"},
                 javascriptreact = {"prettier"},
                 typescript = {"prettier"},

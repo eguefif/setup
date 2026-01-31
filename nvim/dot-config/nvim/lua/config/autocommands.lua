@@ -97,8 +97,6 @@ local function autosave_callback()
     end
 end
 
-autosave_timer:start(10000, 10000, vim.schedule_wrap(autosave_callback))
-
 vim.keymap.set('n', '<leader>ta', function()
     if autosave_enabled then
         autosave_timer:stop()

@@ -1,6 +1,15 @@
 -- Keep visual selection after indenting
 vim.keymap.set('v', '<', '<gv', {desc = 'Indent left and reselect'})
 vim.keymap.set('v', '>', '>gv', {desc = 'Indent right and reselect'})
+vim.keymap.set('v', '>', '>gv', {desc = 'Indent right and reselect'})
+
+-- Map Q to make sure I can exit with Qa when I keep shift by accident
+vim.api.nvim_create_user_command('Q', 'q<bang>', {bang = true})
+vim.api.nvim_create_user_command('Qa', 'qa<bang>', {bang = true})
+vim.api.nvim_create_user_command('QA', 'qa<bang>', {bang = true})
+vim.api.nvim_create_user_command('Wq', 'wq<bang>', {bang = true})
+vim.api.nvim_create_user_command('WQ', 'wq<bang>', {bang = true})
+vim.api.nvim_create_user_command('W', 'w<bang>', {bang = true})
 
 -- LSP keymaps
 vim.api.nvim_create_autocmd('LspAttach', {

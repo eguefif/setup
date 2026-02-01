@@ -13,6 +13,7 @@ alias ccr="codecrafters test"
 alias ccrp="codecrafters test --previous"
 alias cdsetup="cd ~/lab/setup/"
 alias cdvim="cd ~/lab/setup/nvim/dot-config/nvim"
+alias nc="ncat"
 
 . "$HOME/.cargo/env"
 

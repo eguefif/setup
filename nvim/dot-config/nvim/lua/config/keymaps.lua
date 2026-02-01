@@ -3,6 +3,21 @@ vim.keymap.set('v', '<', '<gv', {desc = 'Indent left and reselect'})
 vim.keymap.set('v', '>', '>gv', {desc = 'Indent right and reselect'})
 vim.keymap.set('v', '>', '>gv', {desc = 'Indent right and reselect'})
 
+-- Oil shortcuts
+vim.keymap.set('n', '<leader>or', function()
+    local cwd = vim.fn.getcwd()
+    require('oil').open(cwd)
+end, {desc = 'Open oil root project directory'})
+
+vim.keymap.set('n', '<leader>oh', function() require('oil').toggle_hidden() end,
+               {desc = 'Toggle Oil hidden'})
+
+vim.keymap.set('n', '<leader>oc', function()
+    local oil = require('oil')
+    local cwd = oil.get_current_dir()
+    oil.open(cwd)
+end, {desc = 'Open Oil current folder'})
+
 -- Map Q to make sure I can exit with Qa when I keep shift by accident
 vim.api.nvim_create_user_command('Q', 'q<bang>', {bang = true})
 vim.api.nvim_create_user_command('Qa', 'qa<bang>', {bang = true})

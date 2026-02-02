@@ -3,6 +3,10 @@ vim.keymap.set('v', '<', '<gv', {desc = 'Indent left and reselect'})
 vim.keymap.set('v', '>', '>gv', {desc = 'Indent right and reselect'})
 vim.keymap.set('v', '>', '>gv', {desc = 'Indent right and reselect'})
 
+-- LSP error diagnostic navigation
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {desc = 'Next Diagnostic'})
+vim.keymap.set('n', '[d', vim.diagnostic.goto_next, {desc = 'Next Diagnostic'})
+
 -- Oil shortcuts
 vim.keymap.set('n', '<leader>or', function()
     local cwd = vim.fn.getcwd()

@@ -18,6 +18,9 @@ return {
         vim.keymap.set('n', '<leader><leader>', builtin.find_files,
                        {desc = 'Telescope find files'})
 
+        vim.keymap.set('n', '<leader>fd', builtin.diagnostics,
+                       {desc = 'Telescope Diagnostic Picker'})
+
         vim.keymap.set('n', '<leader>ff', function()
             builtin.find_files({cwd = vim.fn.stdpath("config")})
         end, {desc = 'Telescope find files in nvim config'})

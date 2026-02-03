@@ -81,7 +81,7 @@ vim.api.nvim_create_autocmd('FileType', {
     callback = function() vim.treesitter.start() end
 })
 
--- Auto save modified buffers every 10 seconds
+-- Auto save modified buffers every 30 seconds
 local autosave_timer = vim.uv.new_timer()
 local autosave_enabled = false
 vim.notify('Autosave is disabled')
@@ -103,7 +103,7 @@ vim.keymap.set('n', '<leader>ta', function()
         autosave_enabled = false
         vim.notify('Autosave disabled')
     else
-        autosave_timer:start(10000, 10000, vim.schedule_wrap(autosave_callback))
+        autosave_timer:start(30000, 30000, vim.schedule_wrap(autosave_callback))
         autosave_enabled = true
         vim.notify('Autosave enabled')
     end

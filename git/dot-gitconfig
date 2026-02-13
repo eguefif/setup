@@ -4,3 +4,14 @@
 [core]
 	editor = nvim
 	pager = cat
+
+
+[sendemail]
+    smtpServer = smtp.fastmail.com
+    smtpServerport = 587
+    smtpEncryption = tls
+    smtpUser = eguefif@fastmail.com
+    from = Emmanuel Guefif <eguefif@fastmail.com>
+
+ [credential "smtp://eguefif%40fastmail.com@smtp.fastmail.com:587"]
+      helper = "!f() { echo password=$(op read 'op://Personal/fastmail-git/password'); }; f"

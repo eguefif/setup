@@ -1,6 +1,6 @@
 vim.lsp.enable({
     'ruff', 'basedpyright', 'rust_analyzer', 'lua_ls', 'volar', 'vtsls',
-    'gleam', 'ruby'
+    'gleam', 'ruby', 'c'
 })
 
 vim.diagnostic.config({

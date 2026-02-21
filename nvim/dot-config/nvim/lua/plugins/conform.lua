@@ -8,6 +8,7 @@ return {
                 python = {"ruff_organize_imports", "ruff_format"},
                 -- You can customize some of the format options for the filetype (:help conform.format)
                 c = {"clang-format"},
+                sql = {"pg_format"},
                 rust = {"rustfmt", lsp_format = "fallback"},
                 ruby = {"rubocop", lsp_format = "fallback"},
                 eruby = {"erb_lint"},

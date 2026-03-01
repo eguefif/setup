@@ -6,6 +6,9 @@ vim.keymap.set('v', '>', '>gv', {desc = 'Indent right and reselect'})
 -- LSP error diagnostic navigation
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {desc = 'Next Diagnostic'})
 vim.keymap.set('n', '[d', vim.diagnostic.goto_next, {desc = 'Next Diagnostic'})
+vim.keymap.set("n", "<leader>td", function()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, {desc = "Toggle diagnostics"})
 
 -- Oil shortcuts
 vim.keymap.set('n', '<leader>or', function()
@@ -57,7 +60,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local lsp_log_level = false
-vim.lsp.set_log_level("OFF")
+vim.lsp.set_log_level("DEBUG")
 vim.keymap.set('n', '<leader>tl', function()
     if lsp_log_level then
         vim.lsp.set_log_level("DEBUG")

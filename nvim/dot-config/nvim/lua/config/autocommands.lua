@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'gleam'},
+    pattern = {'gleam', 'elixir'},
     callback = function() vim.treesitter.start() end
 })
 

@@ -14,12 +14,12 @@ return {
                 eruby = {"erb_lint"},
                 toml = {"taplo"},
                 json = {"prettier"},
-                vue = {"prettier"},
-                gleam = {"gleam"},
-                javascript = {"prettier"},
-                javascriptreact = {"prettier"},
-                typescript = {"prettier"},
-                typescriptreact = {"prettier"}
+                -- vue = {"eslint"},
+                gleam = {"gleam"}
+                -- javascript = {"prettier"},
+                -- javascriptreact = {"prettier"},
+                -- typescript = {"eslint"},
+                -- typescriptreact = {"prettier"}
             },
             formatters = {
                 erb_lint = {

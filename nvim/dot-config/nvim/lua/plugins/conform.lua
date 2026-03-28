@@ -15,7 +15,9 @@ return {
                 toml = {"taplo"},
                 json = {"prettier"},
                 -- vue = {"eslint"},
-                gleam = {"gleam"}
+                gleam = {"gleam"},
+                elixir = {"mix"},
+                heex = {"mix"}
                 -- javascript = {"prettier"},
                 -- javascriptreact = {"prettier"},
                 -- typescript = {"eslint"},

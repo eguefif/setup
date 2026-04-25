@@ -17,7 +17,8 @@ return {
                 -- vue = {"eslint"},
                 gleam = {"gleam"},
                 elixir = {"mix"},
-                heex = {"mix"}
+                heex = {"mix"},
+                go = {"gofmt"}
                 -- javascript = {"prettier"},
                 -- javascriptreact = {"prettier"},
                 -- typescript = {"eslint"},

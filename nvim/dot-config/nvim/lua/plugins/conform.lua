@@ -18,7 +18,8 @@ return {
                 gleam = {"gleam"},
                 elixir = {"mix"},
                 heex = {"mix"},
-                go = {"gofmt"}
+                go = {"gofmt"},
+                java = {"google-java-format"}
                 -- javascript = {"prettier"},
                 -- javascriptreact = {"prettier"},
                 -- typescript = {"eslint"},

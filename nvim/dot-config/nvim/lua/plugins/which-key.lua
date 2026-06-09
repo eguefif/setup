@@ -8,7 +8,7 @@ return {
         -- Add group descriptions
         wk.add({
             {"<leader>o", group = "Oil"}, {"<leader>r", group = "Slime"},
-            {"<leader>s", group = "Slime"}, {"<leader>b", group = "Buffer"},
+            {"<leader>s", group = "Snacks"}, {"<leader>b", group = "Buffer"},
             {"<leader>f", group = "Find (Telescope)"},
             {"<leader>g", group = "Git"}, {"<leader>h", group = "Git Hunk"},
             {"<leader>t", group = "Toggle"}

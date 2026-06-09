@@ -7,11 +7,11 @@ return {
 
         -- Add group descriptions
         wk.add({
-            {"<leader>b", group = "Buffer"},
+            {"<leader>o", group = "Oil"}, {"<leader>r", group = "Slime"},
+            {"<leader>s", group = "Slime"}, {"<leader>b", group = "Buffer"},
             {"<leader>f", group = "Find (Telescope)"},
-            {"<leader>g", group = "Git"},
-            {"<leader>h", group = "Git Hunk"},
-            {"<leader>t", group = "Toggle"},
+            {"<leader>g", group = "Git"}, {"<leader>h", group = "Git Hunk"},
+            {"<leader>t", group = "Toggle"}
         })
     end,
     keys = {

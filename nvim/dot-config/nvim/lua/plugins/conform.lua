@@ -13,13 +13,14 @@ return {
                 ruby = {"rubocop", lsp_format = "fallback"},
                 eruby = {"erb_lint"},
                 toml = {"taplo"},
-                json = {"prettier"},
+                json = {"jq"},
                 -- vue = {"eslint"},
                 gleam = {"gleam"},
                 elixir = {"mix"},
                 heex = {"mix"},
                 go = {"gofmt"},
-                java = {"google-java-format"}
+                java = {"google-java-format"},
+                prolog = {lsp_format = "fallback"}
                 -- javascript = {"prettier"},
                 -- javascriptreact = {"prettier"},
                 -- typescript = {"eslint"},

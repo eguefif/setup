@@ -76,6 +76,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
+-- Notify LSP when oil creates files (oil bypasses normal Neovim file-watch events)
+vim.api.nvim_create_autocmd("User", {
+    pattern = "OilActionsPost",
+    callback = function(args)
+        local creates = vim.tbl_filter(function(a) return a.type == "create" end, args.data.actions)
+        if #creates == 0 then return end
+        local changes = vim.tbl_map(function(a)
+            return { uri = vim.uri_from_fname(a.url:gsub("^oil://", "")), type = 1 }
+        end, creates)
+        for _, client in ipairs(vim.lsp.get_clients()) do
+            client.notify("workspace/didChangeWatchedFiles", { changes = changes })
+        end
+    end
+})
+
 vim.api.nvim_create_autocmd('FileType', {
     pattern = {'gleam', 'elixir', 'heex', 'eex'},
     callback = function() vim.treesitter.start() end

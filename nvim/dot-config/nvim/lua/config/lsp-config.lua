@@ -1,6 +1,7 @@
 vim.lsp.enable({
     'basedpyright', 'rust_analyzer', 'lua_ls', 'volar', 'vtsls', 'gleam',
-    'ruby', 'c', 'postgres_lsp', 'elixir-ls', 'gopls', 'clojure_lsp'
+    'ruby', 'c', 'postgres_lsp', 'elixir-ls', 'gopls', 'clojure_lsp',
+    'prolog_ls'
 })
 
 vim.diagnostic.config({

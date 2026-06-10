@@ -6,6 +6,7 @@ return {
         solargraph = {
             diagnostics = true,
             completion = true,
+            useBundler = true,
         }
     }
 }

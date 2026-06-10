@@ -31,6 +31,13 @@ return {
                     command = "erblint",
                     args = {"-a", "$FILENAME"},
                     stdin = false
+                },
+                rubocop = {
+                    command = "bundle",
+                    args = {"exec", "rubocop", "-a", "-f", "quiet", "--stderr", "--force-exclusion", "--stdin", "$FILENAME"},
+                    condition = function(_, ctx)
+                        return vim.fs.find("Gemfile", {path = ctx.dirname, upward = true})[1] ~= nil
+                    end
                 }
             },
             format_after_save = {timeout_ms = 3000, lsp_fallback = false}

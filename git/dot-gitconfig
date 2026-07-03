@@ -15,3 +15,8 @@
 
  [credential "smtp://eguefif%40fastmail.com@smtp.fastmail.com:587"]
       helper = "!f() { echo password=$(op read 'op://Personal/fastmail-git/password'); }; f"
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

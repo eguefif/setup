@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         local chars = {};
         for i = 32, 126 do table.insert(chars, string.char(i)) end
-        if client.supports_method("textDocument/completion") then
+        if client:supports_method("textDocument/completion") then
             client.server_capabilities.completionProvider.triggerCharacters =
                 chars
             vim.lsp.completion.enable(true, client.id, ev.buf,
@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         -- Go to references telescope search
-        if client.supports_method("textDocument/references") then
+        if client:supports_method("textDocument/references") then
             vim.keymap.set('n', 'grr', function()
                 require('telescope.builtin').lsp_references({
                     layout_strategy = 'vertical',
@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             end, {buffer = ev.buf, desc = 'LSP references'})
         end
 
-        if client.supports_method("textDocument/codeAction") then
+        if client:supports_method("textDocument/codeAction") then
             -- Auto remove all unused import
             vim.keymap.set('n', '<leader>cr', function()
                 vim.lsp.buf.code_action({
@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client.supports_method("diagnostic") then
+        if client:supports_method("diagnostic") then
             local opts = {noremap = true, silent = true}
             vim.api.nvim_buf_set_keymap(ev.buf, 'n', '<leader>e',
                                         '<cmd>lua vim.diagnostic.open_float()<CR>',
@@ -80,13 +80,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("User", {
     pattern = "OilActionsPost",
     callback = function(args)
-        local creates = vim.tbl_filter(function(a) return a.type == "create" end, args.data.actions)
+        local creates = vim.tbl_filter(function(a)
+            return a.type == "create"
+        end, args.data.actions)
         if #creates == 0 then return end
         local changes = vim.tbl_map(function(a)
-            return { uri = vim.uri_from_fname(a.url:gsub("^oil://", "")), type = 1 }
+            return {
+                uri = vim.uri_from_fname(a.url:gsub("^oil://", "")),
+                type = 1
+            }
         end, creates)
         for _, client in ipairs(vim.lsp.get_clients()) do
-            client.notify("workspace/didChangeWatchedFiles", { changes = changes })
+            client.notify("workspace/didChangeWatchedFiles", {changes = changes})
         end
     end
 })

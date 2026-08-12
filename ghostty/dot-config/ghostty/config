@@ -59,7 +59,7 @@ keybind = ctrl+l=goto_split:right
 keybind = ctrl+h=goto_split:left
 keybind = ctrl+j=goto_split:bottom
 keybind = ctrl+k=goto_split:top
-keybind = ctrl+s>b=new_tab
+keybind = ctrl+s>c=new_tab
 keybind = ctrl+s>n=next_tab
 keybind = ctrl+s>p=previous_tab
 keybind = ctrl+s>one=goto_tab:1

@@ -14,7 +14,7 @@ return {
                 eruby = {"erb_lint"},
                 toml = {"taplo"},
                 json = {"jq"},
-                vue = {"oxfmt"},
+                --vue = {"oxfmt"},
                 gleam = {"gleam"},
                 elixir = {"mix"},
                 heex = {"mix"},

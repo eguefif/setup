@@ -1,6 +1,7 @@
 return {
     'stevearc/conform.nvim',
     config = function()
+        local util = require("conform.util")
         require("conform").setup({
             formatters_by_ft = {
                 lua = {"lua-format"},
@@ -14,7 +15,7 @@ return {
                 eruby = {"erb_lint"},
                 toml = {"taplo"},
                 json = {"jq"},
-                vue = {"oxfmt"},
+                vue = {"oxfmt", "eslint_d"},
                 gleam = {"gleam"},
                 elixir = {"mix"},
                 heex = {"mix"},
@@ -23,7 +24,7 @@ return {
                 prolog = {lsp_format = "fallback"},
                 -- javascript = {"prettier"},
                 -- javascriptreact = {"prettier"},
-                typescript = {"oxfmt"},
+                -- typescript = {"oxfmt"},
                 -- typescriptreact = {"prettier"}
             },
             formatters = {
@@ -38,6 +39,23 @@ return {
                     condition = function(_, ctx)
                         return vim.fs.find("Gemfile", {path = ctx.dirname, upward = true})[1] ~= nil
                     end
+                },
+                eslint_d = {
+                    -- Make sure eslint_d resolves the project's flat/legacy config
+                    -- instead of falling back to whatever it finds from $CWD.
+                    cwd = util.root_file({
+                        "eslint.config.js",
+                        "eslint.config.mjs",
+                        "eslint.config.cjs",
+                        "eslint.config.ts",
+                        ".eslintrc.js",
+                        ".eslintrc.cjs",
+                        ".eslintrc.yaml",
+                        ".eslintrc.yml",
+                        ".eslintrc.json",
+                        "package.json"
+                    }),
+                    env = {ESLINT_USE_FLAT_CONFIG = "true"}
                 }
             },
             format_after_save = {timeout_ms = 3000, lsp_fallback = false}

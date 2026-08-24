@@ -14,16 +14,16 @@ return {
                 eruby = {"erb_lint"},
                 toml = {"taplo"},
                 json = {"jq"},
-                --vue = {"oxfmt"},
+                vue = {"oxfmt"},
                 gleam = {"gleam"},
                 elixir = {"mix"},
                 heex = {"mix"},
                 go = {"gofmt"},
                 java = {"google-java-format"},
-                prolog = {lsp_format = "fallback"}
+                prolog = {lsp_format = "fallback"},
                 -- javascript = {"prettier"},
                 -- javascriptreact = {"prettier"},
-                -- typescript = {"eslint"},
+                typescript = {"oxfmt"},
                 -- typescriptreact = {"prettier"}
             },
             formatters = {

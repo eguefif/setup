@@ -24,8 +24,13 @@ return {
                 prolog = {lsp_format = "fallback"},
                 -- javascript = {"prettier"},
                 -- javascriptreact = {"prettier"},
+<<<<<<< Updated upstream
                 -- typescript = {"oxfmt"},
                 -- typescriptreact = {"prettier"}
+=======
+                typescript = {"prettier"},
+                typescriptreact = {"prettier"}
+>>>>>>> Stashed changes
             },
             formatters = {
                 erb_lint = {
@@ -35,9 +40,14 @@ return {
                 },
                 rubocop = {
                     command = "bundle",
-                    args = {"exec", "rubocop", "-a", "-f", "quiet", "--stderr", "--force-exclusion", "--stdin", "$FILENAME"},
+                    args = {
+                        "exec", "rubocop", "-a", "-f", "quiet", "--stderr",
+                        "--force-exclusion", "--stdin", "$FILENAME"
+                    },
                     condition = function(_, ctx)
-                        return vim.fs.find("Gemfile", {path = ctx.dirname, upward = true})[1] ~= nil
+                        return vim.fs.find("Gemfile",
+                                           {path = ctx.dirname, upward = true})[1] ~=
+                                   nil
                     end
                 },
                 eslint_d = {

@@ -19,6 +19,12 @@ alias cdsetup="cd ~/lab/setup/"
 alias cdvim="cd ~/lab/setup/nvim/dot-config/nvim"
 alias nc="ncat"
 
+alias buts="but squash"
+alias butp="but push"
+alias butd="but discard"
+alias butc="but commit"
+alias butb="but branch new"
+
 . "$HOME/.cargo/env"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -136,3 +142,6 @@ esac
 
 # Added by GitButler installer
 eval "$(but completions zsh)"
+
+# Scaleway CLI autocomplete initialization.
+eval "$(scw autocomplete script shell=zsh)"

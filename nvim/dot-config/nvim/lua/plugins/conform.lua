@@ -23,14 +23,8 @@ return {
                 java = {"google-java-format"},
                 prolog = {lsp_format = "fallback"},
                 -- javascript = {"prettier"},
-                -- javascriptreact = {"prettier"},
-<<<<<<< Updated upstream
-                -- typescript = {"oxfmt"},
-                -- typescriptreact = {"prettier"}
-=======
                 typescript = {"prettier"},
                 typescriptreact = {"prettier"}
->>>>>>> Stashed changes
             },
             formatters = {
                 erb_lint = {

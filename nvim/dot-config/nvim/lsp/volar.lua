@@ -1,14 +1,24 @@
 return {
     cmd = {"vue-language-server", "--stdio"},
     filetypes = {"vue"},
-    root_markers = {"package.json"},
+    root_markers = {"package.json", "vite.config.ts"},
     on_init = function(client)
         local retries = 0
 
         local function typescriptHandler(_, result, context)
-            local ts_client = vim.lsp.get_clients({bufnr = context.bufnr, name = "ts_ls"})[1] or
-                                  vim.lsp.get_clients({bufnr = context.bufnr, name = "vtsls"})[1] or
-                                  vim.lsp.get_clients({bufnr = context.bufnr, name = "typescript-tools"})[1]
+            local ts_client = vim.lsp.get_clients({
+                bufnr = context.bufnr,
+                name = "ts_ls"
+            })[1] or
+                                  vim.lsp
+                                      .get_clients(
+                                      {bufnr = context.bufnr, name = "vtsls"})[1] or
+                                  vim.lsp
+                                      .get_clients(
+                                      {
+                        bufnr = context.bufnr,
+                        name = "typescript-tools"
+                    })[1]
 
             if not ts_client then
                 -- Retry for a few times until TypeScript server is ready
@@ -20,8 +30,7 @@ return {
                 else
                     vim.notify(
                         "Could not find `ts_ls`, `vtsls`, or `typescript-tools` lsp client required by `volar`.",
-                        vim.log.levels.ERROR
-                    )
+                        vim.log.levels.ERROR)
                 end
                 return
             end

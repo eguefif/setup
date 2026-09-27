@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             client.server_capabilities.completionProvider.triggerCharacters =
                 chars
             vim.lsp.completion.enable(true, client.id, ev.buf,
-                                      {autotrigger = false})
+                                      {autotrigger = true})
             vim.keymap.set('i', '<C-Space>', '<C-x><C-o>',
                            {buffer = ev.buf, desc = 'Trigger completion'})
         end

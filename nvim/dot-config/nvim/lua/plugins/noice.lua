@@ -2,7 +2,8 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
-        -- add any options here
+        -- Rounded border on the LSP hover (K) and signature help windows
+        presets = {lsp_doc_border = true}
     },
     dependencies = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries

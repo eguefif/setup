@@ -4,6 +4,7 @@ vim.lsp.enable({
 })
 
 vim.diagnostic.config({
-    virtual_text = true
+    virtual_text = true,
+    float = {border = "rounded"}
     -- virtual_lines = {current_line = false}
 })

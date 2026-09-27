@@ -21,3 +21,7 @@ vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 
 vim.lsp.log.set_level("ERROR")
+
+-- Completion popup menu: show at most 10 items (scroll for more) with a rounded border
+vim.opt.pumheight = 10
+vim.opt.pumborder = "rounded"

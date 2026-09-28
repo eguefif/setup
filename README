@@ -1,5 +1,13 @@
 # My Personal Setup
 
+## Tech
+
+- [ ] [Neovim](https://neovim.io/)
+- [ ] [Ghostty](https://ghostty.org/)
+- [ ] Tmux
+- [ ] Zshrc
+- [ ] [Oh My Zsh](https://ohmyz.sh/)
+
 ### How to create a dot-files
 
 1. Move the config file into the setup folder. You need to reproduce the filetree where the file need to be stowed.

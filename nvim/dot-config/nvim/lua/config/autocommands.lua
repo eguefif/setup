@@ -1,5 +1,15 @@
 -- Auto completion
 vim.cmd [[set completeopt+=menuone,noselect,popup]]
+
+-- Accept completion with <Tab> (first item when none is selected);
+-- insert a normal tab when the menu is closed
+vim.keymap.set('i', '<Tab>', function()
+    if vim.fn.pumvisible() == 0 then return '<Tab>' end
+    if vim.fn.complete_info({'selected'}).selected == -1 then
+        return '<C-n><C-y>'
+    end
+    return '<C-y>'
+end, {expr = true, desc = 'Accept completion'})
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)

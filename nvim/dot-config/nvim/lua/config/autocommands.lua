@@ -101,7 +101,7 @@ vim.api.nvim_create_autocmd("User", {
             }
         end, creates)
         for _, client in ipairs(vim.lsp.get_clients()) do
-            client.notify("workspace/didChangeWatchedFiles", {changes = changes})
+            client:notify("workspace/didChangeWatchedFiles", {changes = changes})
         end
     end
 })

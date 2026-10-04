@@ -60,14 +60,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local lsp_log_level = false
-vim.lsp.log.set_level("DEBUG")
+vim.lsp.log.set_level("OFF")
 vim.keymap.set('n', '<leader>tl', function()
+    lsp_log_level = not lsp_log_level
     if lsp_log_level then
         vim.lsp.log.set_level("DEBUG")
         vim.notify("LSP log level set to Debug")
     else
         vim.lsp.log.set_level("OFF")
         vim.notify("LSP log OFF")
-        lsp_log_level = not lsp_log_level
     end
 end, {desc = "Toggle lSP logging"})
